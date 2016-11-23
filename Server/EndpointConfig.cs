@@ -5,12 +5,17 @@ namespace Server
 {
     public class EndpointConfig : IConfigureThisEndpoint, ISpecifyMessageHandlerOrdering
     {
+        public EndpointConfig()
+        {
+            global::NServiceBus.Logging.LogManager.Use<NLogFactory>();
+        }
+
         public void Customize(BusConfiguration configuration)
         {
             configuration.EndpointName("MyTest.Server");
-            configuration.UseSerialization<JsonSerializer>();
             configuration.EnableInstallers();
             configuration.UsePersistence<InMemoryPersistence>();
+            configuration.UseSerialization<JsonSerializer>();
         }
 
         public void SpecifyOrder(Order order)

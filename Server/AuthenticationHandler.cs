@@ -1,10 +1,12 @@
-﻿using System;
-using NServiceBus;
+﻿using NServiceBus;
+using NLog;
 
 namespace Server
 {
     public class AuthenticationHandler : IHandleMessages<IMessage>
     {
+        private static readonly Logger s_log = LogManager.GetCurrentClassLogger();
+
         public IBus Bus { get; set; }
 
         public void Handle(IMessage message)
@@ -13,11 +15,11 @@ namespace Server
 
             if (token == "my_little_secret")
             {
-                Console.WriteLine("User authenticated");
+                s_log.Info("User authenticated");
             }
             else
             {
-                Console.WriteLine("User not authenticated");
+                s_log.Info("User not authenticated");
                 Bus.DoNotContinueDispatchingCurrentMessageToHandlers();
             }
         }
