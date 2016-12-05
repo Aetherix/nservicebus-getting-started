@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="ConfigErrorQueue.cs" />
     <Compile Include="OrderPlaced.cs" />
+    <Compile Include="PaymentFeedbackSent.cs" />
     <Compile Include="SendPaymentFeedback.cs" />
     <Compile Include="PlaceOrder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
