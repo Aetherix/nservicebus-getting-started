@@ -46,7 +46,7 @@ namespace Client
                 bus.SetMessageHeader(placeOrder, "access_token", "my_little_secret");
 
                 bus.Send("MyTest.Server", placeOrder);
-                Console.WriteLine($"Sent a new PlaceOrder message with id: {id.ToString("N")}");
+                Console.WriteLine($"Sent a new PlaceOrder message with id: {id}");
             }
         }
     }

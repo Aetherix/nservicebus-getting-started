@@ -4,13 +4,13 @@ using Shared;
 
 namespace Subscriber
 {
-    public class OrderCreatedHandler : IHandleMessages<OrderPlaced>
+    public class SendPaymentFeedbackHandler : IHandleMessages<SendPaymentFeedback>
     {
-        static ILog log = LogManager.GetLogger<OrderCreatedHandler>();
+        static ILog log = LogManager.GetLogger<SendPaymentFeedbackHandler>();
 
-        public void Handle(OrderPlaced message)
+        public void Handle(SendPaymentFeedback message)
         {
-            log.Info($"Handling: OrderPlaced for Order Id: {message.OrderId}");
+            log.Info($"Handling: SendPaymentFeedback for Order Id: {message.OrderId}");
         }
     }
 }
