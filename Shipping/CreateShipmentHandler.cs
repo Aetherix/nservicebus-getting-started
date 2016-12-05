@@ -14,6 +14,8 @@ namespace Shipping
         {
             log.Info($"Handling: CreateShipment for Order Id: {message.OrderId}");
 
+            // Thread.Sleep(1000 * 10);
+
             Bus.Publish<ShipmentCreated>(x => { x.OrderId = message.OrderId; });
         }
     }
